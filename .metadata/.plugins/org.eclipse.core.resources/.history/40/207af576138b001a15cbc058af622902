@@ -1,0 +1,13 @@
+
+public class RevisaoRooms {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Quartos room;
+		
+		
+		sc.close();
+
+	}
+
+}

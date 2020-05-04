@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class ExercicioArrayRooms {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		Rooms[] vect = new Rooms[10];
+		
+		sc.close();
+
+	}
+
+}

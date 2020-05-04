@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class exercicioMatriz {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int c = sc.nextInt();
+		int l = sc.nextInt();
+		
+		int[][] mat = new int[c][l];
+		
+		sc.close();
+		}
+
+	}
+
+}

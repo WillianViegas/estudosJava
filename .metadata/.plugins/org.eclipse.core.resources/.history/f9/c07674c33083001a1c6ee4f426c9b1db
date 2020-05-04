@@ -1,0 +1,142 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Exercicios02_ifElse {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		double x, y;
+
+	}
+
+	public static void exercicio01() {
+		Scanner sc = new Scanner(System.in);
+		int x;
+
+		System.out.println("Digite um valor:");
+		x = sc.nextInt();
+
+		if (x >= 0) {
+			System.out.println("NAO NEGATIVO");
+		} else {
+			System.out.println("NEGATIVO");
+		}
+
+		sc.close();
+	}
+
+	public static void exercicio02() {
+
+		Scanner sc = new Scanner(System.in);
+		int x;
+
+		System.out.println("Digite um valor:");
+		x = sc.nextInt();
+
+		if (x % 2 == 0) {
+			System.out.println("PAR");
+		} else {
+			System.out.println("IMPAR");
+		}
+
+		sc.close();
+	}
+
+	public static void exercicio03() {
+		Scanner sc = new Scanner(System.in);
+		int x;
+		int y;
+
+		System.out.println("Digite os valores:");
+		x = sc.nextInt();
+		y = sc.nextInt();
+
+		if (x % y == 0 || y % x == 0) {
+			System.out.println("São multiplos");
+		} else {
+			System.out.println("Não são multiplos");
+		}
+
+		sc.close();
+	}
+
+	public static void exercicio04() {
+		Scanner sc = new Scanner(System.in);
+		int horaI, horaF, I, F, total;
+
+		horaI = sc.nextInt();
+		horaF = sc.nextInt();
+
+		if (horaI > horaF) {
+			I = 24 - horaI;
+			F = horaF;
+			total = I + F;
+		} else if (horaI < horaF) {
+			I = 24 - horaI;
+			F = 24 - horaF;
+			total = I - F;
+		} else {
+			I = 24 - horaI;
+			F = horaF;
+			total = I + F;
+		}
+
+		System.out.printf("O JOGO DUROU %d HORA(S)", total);
+		sc.close();
+	}
+	
+	public static void exercicio05() {
+		Scanner sc = new Scanner(System.in);
+		int codigo, qnt;
+		double dog = 4.00;
+		double salada = 4.50;
+		double bacon = 5.00;
+		double torrada = 2.00;
+		double refri = 1.50;
+		double total = 0;
+
+		codigo = sc.nextInt();
+		qnt = sc.nextInt();
+
+		if (codigo == 1) {
+			total = qnt * dog;
+		} else if (codigo == 2) {
+			total = qnt * salada;
+		} else if (codigo == 3) {
+			total = qnt * bacon;
+		} else if (codigo == 4) {
+			total = qnt * torrada;
+		} else if (codigo == 5) {
+			total = qnt * refri;
+		}
+
+		System.out.printf("Total: R$ %.2f", total);
+		sc.close();
+	}
+	
+	public static void exercicio06() {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		double intervalo;
+		
+		intervalo = sc.nextDouble();
+		
+		if(intervalo > 0 && intervalo <= 25) {
+			System.out.println("Intervalo [0,25]");
+		}
+		else if (intervalo > 25 && intervalo <= 50){
+			System.out.println("Intervalo [25,50]");
+		}
+		else if (intervalo > 50 && intervalo <= 75) {
+			System.out.println("Intervalo [50,75]");
+		}
+		else if ( intervalo > 75 && intervalo <= 100) {
+			System.out.println("Intervalo [75,100]");
+		}
+		else {
+			System.out.println("Fora do intervalo!");
+		}
+		sc.close();
+	}
+}

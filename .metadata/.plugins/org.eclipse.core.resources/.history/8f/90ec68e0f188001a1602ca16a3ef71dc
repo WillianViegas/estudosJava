@@ -1,0 +1,14 @@
+package entities;
+
+public class Bank {
+	private int number;
+	private String holder;
+	private double countValue;
+	
+	public account(int number, String holder, countValue) {
+		this.number = number;
+		this.holder = holder;
+		this.countValue = countValue;
+	}
+	
+}

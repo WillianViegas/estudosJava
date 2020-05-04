@@ -1,0 +1,16 @@
+package entities;
+
+public class Func {
+
+	private int id;
+	private String nome;
+	private double salario;
+	
+
+public Func(int id, String nome, double salario) {
+	this.id = id;
+	this.nome = nome;
+	this.salario = salario;
+}
+
+}
