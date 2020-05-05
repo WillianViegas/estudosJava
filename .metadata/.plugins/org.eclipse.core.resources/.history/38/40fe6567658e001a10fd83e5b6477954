@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListaTreino {
+
+	public static void main(String[] args) {
+		List<String> lista = new ArrayList<>();
+		
+		lista.add("Joao");
+		lista.add("Vinicius");
+		lista.add("Kioto");
+
+		
+		for(String x : lista) {
+			System.out.println(x);
+		}
+		
+		System.out.println();
+		
+		lista.remove(0);
+		lista.add("Miguel");
+		
+		for(String x : lista) {
+			System.out.println(x);
+		}
+		
+		System.out.println();
+		System.out.println(lista.Size);
+	}
+
+}
