@@ -1,6 +1,0 @@
-package entities;
-
-public class Quartos {
-	private String name;
-	private String email;
-}

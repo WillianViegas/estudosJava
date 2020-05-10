@@ -1,9 +1,0 @@
-package entities;
-
-public class Rooms {
-	private String name;
-	private String email;
-	private int quarto;
-	
-	public Rooms(String name, String email, int quarto);
-}

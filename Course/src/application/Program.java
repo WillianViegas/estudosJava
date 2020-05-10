@@ -12,33 +12,46 @@ import java.util.Scanner;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 
+import entities.Comment;
+import entities.Department;
+import entities.HourContract;
+import entities.Order;
+import entities.Post;
 import entities.Product;
 import entities.Products;
 import entities.Triangle;
+import entities.Worker;
+import entities.enums.OrderStatus;
+import entities.enums.WorkerLevel;
 import util.CurrencyConverter;
 
 public class Program {
 	
 	public static void main(String[] args) throws ParseException {
-	
-		SimpleDateFormat sdf = new  SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
-		Date d = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
-		System.out.println(sdf.format(d));
+		Comment c1 = new Comment("Have a nice trip!");
+		Comment c2 = new Comment("Wow that's awesome!");
+		Post p1 =  new Post(sdf.parse("21/06/2018 13:05:44"), "Traveling to New Zealand", 
+				"I'm going to visit this wonderful country!", 12);
 		
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(d);
-		//cal.add(Calendar.HOUR_OF_DAY, 4);
-		//d = cal.getTime();
+		p1.addComment(c1);
+		p1.addComment(c2);
+
 		
-		int minutes = cal.get(Calendar.MINUTE);
-		int month = 1 + cal.get(Calendar.MONTH);
 		
-		System.out.println("MIN: " + minutes);
-		System.out.println("MON: " + month);
-		System.out.println(sdf.format(d));
+		Comment c3 = new Comment("Good night");
+		Comment c4 = new Comment("May the force be with you");
+		Post p2 = new Post(
+				sdf.parse("28/07/2018 23:14:19"),
+				"Good night guys",
+				"See you tomorrow",5);
 		
+		p2.addComment(c3);
+		p2.addComment(c4);
+		System.out.println(p1);
+		System.out.println(p2);
 		
 	}
 	
@@ -273,5 +286,86 @@ public class Program {
 		System.out.println(sdf3.format(x3));
 		System.out.println(sdf3.format(x4));
 		
+	}
+	
+	public static void utfExercicio() {
+SimpleDateFormat sdf = new  SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
+		Date d = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
+		
+		System.out.println(sdf.format(d));
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(d);
+		//cal.add(Calendar.HOUR_OF_DAY, 4);
+		//d = cal.getTime();
+		
+		int minutes = cal.get(Calendar.MINUTE);
+		int month = 1 + cal.get(Calendar.MONTH);
+		
+		System.out.println("MIN: " + minutes);
+		System.out.println("MON: " + month);
+		System.out.println(sdf.format(d));
+	}
+	
+	public static void exemploEnum() {
+Order order = new Order(1080, new Date(), OrderStatus.PENDING_PAYMENT);
+		
+		System.out.println(order);
+		
+		OrderStatus os1 = OrderStatus.DELIVERED;
+		
+		OrderStatus os2 = OrderStatus.valueOf("DELIVERED");
+		
+		System.out.println(os1);
+		System.out.println(os2);
+	}
+	
+	public static void exercicioWorker() throws ParseException {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		System.out.print("Enter department's name: ");
+		String departmentName = sc.nextLine();
+		
+		System.out.println("Enter worker data: ");
+		System.out.print("Name: ");
+		String name = sc.nextLine();
+		
+		System.out.print("Level: ");
+		String level = sc.nextLine();
+		
+		System.out.print("Base Salary: ");
+		double baseSalary = sc.nextDouble();
+		
+		Worker worker = new Worker(name, WorkerLevel.valueOf(level), baseSalary,new Department(departmentName));
+		
+		System.out.print("How many contracts to this worker? ");
+		int n = sc.nextInt();
+		
+		for(int i = 1; i <= n; i++) {
+			System.out.println("Enter contract #" + i + " data:");
+			System.out.print("Date (DD/MM/YYY): ");
+			Date contractDate = sdf.parse(sc.next());
+			System.out.print("Value per hour: ");
+			double valuePerHour = sc.nextDouble();
+			System.out.print("Duration(hours)");
+			int hours = sc.nextInt();
+			HourContract contract = new HourContract(contractDate, valuePerHour, hours);
+			worker.addContract(contract);
+		}
+		
+		System.out.println();
+		System.out.print("Enter month and year to calculate income (MM/YYYY): ");
+		String monthAndYear = sc.next();
+		int month = Integer.parseInt(monthAndYear.substring(0, 2));
+		int year = Integer.parseInt(monthAndYear.substring(3));
+		System.out.println("Name: " + worker.getName());
+		System.out.println("Department: " + worker.getDepartment().getName());
+		System.out.println("Income for " + monthAndYear + ":" 
+		+ String.format("%.2f",worker.income(year, month)));
+		
+		sc.close();
 	}
 }
