@@ -50,4 +50,10 @@ public class Product {
 			+ ","
 			+ quantity;
 	}
+	
+	public String toStringTotal() {
+		return name
+			+ ","
+			+ String.format("%.2f",total());
+	}
 }

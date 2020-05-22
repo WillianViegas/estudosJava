@@ -36,6 +36,7 @@ public class Program {
 		for(Product l : list) {
 			System.out.println("Products: " + l);
 			lines.add(l.toString());
+			
 		}
 		
 		System.out.print("Enter a path: ");
