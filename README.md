@@ -8,7 +8,7 @@ Aprender a linguagem de programação java e me desenvolver ainda mais.
 Padrão
 
 # Screenshots
-![JAVA figure](java.jpg)
+![JAVA figure](java.png)
 
 # Tecnologia/Framework
 JDK 11.0.7 e Eclipse
