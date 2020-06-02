@@ -6,7 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="Set&lt;String&gt; set = new LinkedHashSet&lt;&gt;();"/>
 		<list key="findhistory">
+			<item value="Set&lt;String&gt; set = new LinkedHashSet&lt;&gt;();"/>
 			<item value="f"/>
 		</list>
 		<list key="replacehistory">
